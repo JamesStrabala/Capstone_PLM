@@ -1,6 +1,6 @@
 import os
 def load_fasta_sequences(path):
-    
+    max_len=512
     sequences = []
     for filename in os.listdir(path):
         if filename.endswith(".fasta"):
@@ -10,12 +10,12 @@ def load_fasta_sequences(path):
                 seq = ""
                 for line in f:
                     if line.startswith(">"):
-                        if seq:
+                        if seq and len(sec)<=max_len:
                             sequences.append(seq)
                             seq = ""
                     else:
                         seq += line.strip()
-                if seq:
+                if seq and len (sec)<=max_len:
                     sequences.append(seq)
     return sequences
 
