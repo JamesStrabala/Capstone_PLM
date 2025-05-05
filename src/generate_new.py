@@ -40,9 +40,18 @@ def generate_sequence(model_path, start_seq="M", max_length=512, temperature=1.0
 
 if __name__ == "__main__":
     model_path = "output/model_epoch_10.pt"  
-    input="M"
-    print("Enter a prompt containing only Amino Acid Abbreviations or '0' to quit:")
-    for i in range(10):
-        new_seq = generate_sequence(model_path, start_seq="M", max_length=512, temperature=1.0)
-        print(f"Generated Unprompted sequence {i}: \n{new_seq}")
-   # new_seq = generate_sequence(model_path, start_seq="MEQTEKSKVYAENGLLEKIK", max_length=512, temperature=1.0)
+    inputSeq="M"
+    amino_acids = "RHKDESTNQCUGPAVILMFYW"
+    While inputSeq !='0':
+        valid=True
+        For t in inputSeq:
+            if t not in amino_acids:
+                valid=False
+        if valid and len(inputSeq>0):
+            print("Enter a prompt containing only Amino Acid Abbreviations (ACDEFGHIKLMNPQRSTVWY) or '0' to quit:")
+            new_seq = generate_sequence(model_path, start_seq=inputSeq, max_length=512, temperature=1.0)
+            print(f"Generated Unprompted sequence: \n{new_seq}")
+            inputSeq =input("Enter a prompt containing only Amino Acid Abbreviations (ACDEFGHIKLMNPQRSTVWY) or '0' to quit:")
+        else:
+            inputSeq=input("Invalid character(s) detected. Please check your prompt and try again.")
+    print("Quitting")
