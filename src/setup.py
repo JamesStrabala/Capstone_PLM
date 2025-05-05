@@ -20,7 +20,7 @@ def load_fasta_sequences(path):
     return sequences
 
 def build_vocab():
-    amino_acids = "ACDEFGHIKLMNPQRSTVWY"
+    amino_acids = "RHKDESTNQCUGPAVILMFYW"
     vocab = {aa: idx+1 for idx, aa in enumerate(amino_acids)}  # 0 reserved for padding
     return vocab
 #Sequences\Voltage 588K.fasta
