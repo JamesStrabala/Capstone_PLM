@@ -10,7 +10,6 @@ def generate_sequence(model_path, start_seq="M", max_length=512, temperature=1.0
     model = ProteinLanguageModel(vocab_size=len(vocab)+1)
     model.load_state_dict(torch.load(model_path, map_location=torch.device('cpu')))
     model.eval()
-    print("Model good and loaded")
     input_ids = [vocab.get(aa, 0) for aa in start_seq]
     generated = input_ids.copy()
 
