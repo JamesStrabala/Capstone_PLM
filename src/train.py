@@ -24,7 +24,7 @@ def main():
     dataloader = DataLoader(dataset, batch_size=batch_size, shuffle=True)
 
     model = ProteinLanguageModel(vocab_size=len(vocab)+1, embed_dim=embed_dim, max_len=max_len)
-    model.load_state_dict(torch.load("output/model_epoch_1.pt", map_location=torch.device('cpu')))
+   # model.load_state_dict(torch.load("output/model_epoch_1.pt", map_location=torch.device('cpu')))
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     model.to(device)
 
