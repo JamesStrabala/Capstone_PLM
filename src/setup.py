@@ -9,12 +9,12 @@ def load_fasta_sequences(path):
                 seq = ""
                 for line in f:
                     if line.startswith(">"):
-                        if seq and len(sec)<=max_len:
+                        if seq and len(seq) <=max_len:
                             sequences.append(seq)
-                            seq = ""
+                        seq = ""
                     else:
                         seq += line.strip()
-                if seq and len (sec)<=max_len:
+                if seq and len (seq)<=max_len:
                     sequences.append(seq)
     print(str(len(sequences))+" sequences loaded.")
     return sequences
