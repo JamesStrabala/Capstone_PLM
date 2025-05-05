@@ -39,8 +39,14 @@ def generate_sequence(model_path, start_seq="M", max_length=512, temperature=1.0
     return generated_seq
 
 if __name__ == "__main__":
-    model_path = "output/model_epoch_1.pt"  # 
+    model_path = "output/model_epoch_10.pt"  # 
     print("Beginning")
     for i in range(10):
-        new_seq = generate_sequence(model_path, start_seq="MRGARGAWDFLFVLLLLLLVQTGSSQPSVS", max_length=512, temperature=1.0)
-        print(f"Generated sequence:\n{new_seq}")
+        new_seq = generate_sequence(model_path, start_seq="M", max_length=512, temperature=1.0)
+        print(f"Generated Unprompted sequence {i}: \n{new_seq}")
+    print("Generating insulin variant")
+    new_seq = generate_sequence(model_path, start_seq="MALWMRLLPLLALLALWGPD", max_length=512, temperature=1.0)
+    print("Generating holin variant")
+    new_seq = generate_sequence(model_path, start_seq="WLGVAERALKTAAQTALASI", max_length=512, temperature=1.0)
+    print("Generating channel variant")
+    new_seq = generate_sequence(model_path, start_seq="MEQTEKSKVYAENGLLEKIK", max_length=512, temperature=1.0)
