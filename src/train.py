@@ -10,21 +10,21 @@ from model import ProteinLanguageModel
 def main():
     # Config
     batch_size = 32
-    epochs = 1
+    epochs = 10
     max_len = 512
     embed_dim = 64
     lr = 1e-3
 
     # Load data
     print("Loading up")
-    sequences = load_fasta_sequences("Sequences")
+    sequences = load_fasta_sequences("/content/Capstone_PLM/Sequences")
     vocab = build_vocab()
 
     dataset = ProteinDataset(sequences, vocab, max_len=max_len)
     dataloader = DataLoader(dataset, batch_size=batch_size, shuffle=True)
 
     model = ProteinLanguageModel(vocab_size=len(vocab)+1, embed_dim=embed_dim, max_len=max_len)
-   # model.load_state_dict(torch.load("output/model_epoch_1.pt", map_location=torch.device('cpu')))
+    #model.load_state_dict(torch.load("output/model_epoch_1.pt", map_location=torch.device('cpu')))
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     model.to(device)
 
@@ -54,7 +54,7 @@ def main():
             loop.set_postfix(loss=total_loss / (loop.n + 1))
 
         # Save model checkpoint
-        torch.save(model.state_dict(), f"output/model_epoch_{epoch+2}.pt")
+        torch.save(model.state_dict(), f"/content/Capstone_PLM/output/model_epoch_{epoch+1}.pt")
         print('epoch ' + str(epoch+1)+" done")
 
 if __name__ == "__main__":
