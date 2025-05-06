@@ -1,7 +1,7 @@
 import torch.nn as nn
 
 class ProteinLanguageModel(nn.Module):
-    def __init__(self, vocab_size, embed_dim=64, num_heads=128, num_layers=4, max_len=512):
+    def __init__(self, vocab_size, embed_dim=64, num_heads=4, num_layers=4, max_len=512):
         super().__init__()
         self.embedding = nn.Embedding(vocab_size, embed_dim)
         encoder_layer = nn.TransformerEncoderLayer(d_model=embed_dim, nhead=num_heads)
