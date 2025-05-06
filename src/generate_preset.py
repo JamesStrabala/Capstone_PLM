@@ -34,15 +34,13 @@ def generate_sequence(model_path, start_seq="M", max_length=512, temperature=1.0
 
     # Convert token ids back to amino acids
     generated_seq = ''.join([inv_vocab.get(idx, 'X') for idx in generated])
-    print("Sequence converted")
     return generated_seq
 
 if __name__ == "__main__":
     model_path = "output/model_epoch_10.pt"  # 
-    print("Beginning")
     for i in range(10):
         new_seq = generate_sequence(model_path, start_seq="M", max_length=512, temperature=1.0)
-        print(f"Generated unprompted sequence {i}: \n{new_seq}")
+        print(f"Generated unprompted sequence {i+1}: \n{new_seq}")
     print("Generating insulin variant")
     new_seq = generate_sequence(model_path, start_seq="MALWMRLLPLLALLALWGPD", max_length=512, temperature=1.0)
     print(f"Generated insulin variant: \n{new_seq}")
