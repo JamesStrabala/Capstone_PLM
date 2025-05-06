@@ -12,7 +12,7 @@ def main():
     batch_size = 32
     epochs = 10
     max_len = 512
-    embed_dim = 128
+    embed_dim = 64
     lr = 1e-3
 
     # Load data
