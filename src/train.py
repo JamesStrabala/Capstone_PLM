@@ -16,7 +16,6 @@ def main():
     lr = 1e-3
 
     # Load data
-    print("Loading up")
     sequences = load_fasta_sequences("/content/Capstone_PLM/Sequences")
     vocab = build_vocab()
 
