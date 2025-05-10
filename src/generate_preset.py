@@ -50,6 +50,6 @@ if __name__ == "__main__":
     print("Generating channel variant")
     new_seq = generate_sequence(model_path, start_seq="MEQTEKSKVYAENGLLEKIK", max_length=512, temperature=1.0)
     print(f"Generated channel variant: \n{new_seq}")
-        print("Generating channel variant")
+    print("Generating cytochrome variant")
     new_seq = generate_sequence(model_path, start_seq="MEQTEVLKPRTLADLIRILH", max_length=512, temperature=1.0)
-    print(f"Generated cydx variant: \n{new_seq}")
+    print(f"Generated cytochrome variant: \n{new_seq}")
