@@ -35,7 +35,7 @@ def generate_sequence(model_path, start_seq="M", max_length=512, temperature=1.0
     # Convert token ids back to amino acids
     generated_seq = ''.join([inv_vocab.get(idx, 'X') for idx in generated])
     return generated_seq
-
+#
 if __name__ == "__main__":
     model_path = "output/model_epoch_10.pt"  # 
     for i in range(10):
@@ -50,3 +50,6 @@ if __name__ == "__main__":
     print("Generating channel variant")
     new_seq = generate_sequence(model_path, start_seq="MEQTEKSKVYAENGLLEKIK", max_length=512, temperature=1.0)
     print(f"Generated channel variant: \n{new_seq}")
+        print("Generating channel variant")
+    new_seq = generate_sequence(model_path, start_seq="MEQTEVLKPRTLADLIRILH", max_length=512, temperature=1.0)
+    print(f"Generated cydx variant: \n{new_seq}")
